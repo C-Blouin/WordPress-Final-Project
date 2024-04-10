@@ -1,0 +1,2349 @@
+/* 
+Theme Name: Sweet N' Stiff
+Author: Christopher Blouin
+Description: The Sweet N' Stiff theme serves as a template for a freeze-dried candy business. It is a simple, yet elegant design that is easy to navigate and visually appealing, while offering an effective solution to selling online goods.
+Requires at least: 5.9
+Tested up to: 6.4.3
+Requires PHP: 5.6
+Version: 1.0
+*/
+
+@charset "utf-8";
+
+/* Font Imports Raleway & Mr De Haviland (Display Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mr+De+Haviland&display=swap');
+
+/* Monserrat (Body Font) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* CTA Font */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+  scroll-behavior: smooth;
+  padding: 0;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/* Declare Root styles to allow for a consistent theme.  */
+:root {
+    /* Color Palette Variables. */
+    --light-white: #FFF8FE;
+    --light-blue: #E6FDFF;
+    --light-cyan: #C5FEFF;
+    --cyan: #91EAFF;
+    --dark-cyan: #22D5FF;
+    --dark-pink: #F453BE;
+    --lightest-pink: #fcf4fc;
+    --lighter-pink: #fffefe;
+    --light-pink: #fff3f8;
+    --pastel-pink: #ffc8ed;
+    --pastel-hover: #ffe3f5;
+    --dark-magenta: #511C3F;
+    --product-price: #A3377F;
+    --light-magenta: #A3377F;
+    --slate-black: #0f0f0f;
+    --footer-bg: #D9FFFF;
+
+    /* Font Family Variables. */
+    --heading-font: "Raleway", sans-serif;
+    --display-font: "Mr De Haviland", cursive;
+    --body-font: "Montserrat", sans-serif;
+    --cta-font: "Varela Round", sans-serif;
+
+    /* Heading Styles for Desktop and Mobile. */
+    --primary-h1: 95px;
+    --primary-h1-mobile: 41px;
+
+    --primary-h2: 76px;
+    --primary-h2-mobile: 38px;
+
+    --desktop-body-size: 21px;
+    --mobile-body-size: 16px;
+
+    /* Font Sizing Variables. */
+    --font-xxs: 0.9rem;
+    --font-xs: 1.2rem;
+    --font-sm: 1.4rem;
+    --font-md: 1.6rem;
+    --font-lg: 1.8rem;
+    --font-xlg: 2rem;
+    --font-xxlg: 2.2rem;
+    
+
+    /* Transition Variable. */
+    --transition: all 0.3s ease-in-out;
+}
+
+/* Apply the border-box sizing to all elements and either before and after elements. */
+html,
+*, 
+::after, ::before {
+    box-sizing: border-box;
+}
+
+/* All elements will inherit the box-sizing set in the root html styles. */
+*::before, *::after, * {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    line-height: 1.6;
+    font-size: 100%;
+    font-family: var(--body-font);
+    font-weight: 300;
+    font-style: normal;
+    color: var(--slate-black);
+    margin: 0!important;
+}
+
+/* Scrollbar styles. */
+body::-webkit-scrollbar {
+width: 7px; 
+}
+
+/* Scrollbar track styles. */
+body::-webkit-scrollbar-track {
+background: var(--light-blue); 
+}
+
+/* Scrollbar thumb styles. */
+body::-webkit-scrollbar-thumb {
+background-color: var(--dark-cyan); 
+border-radius: 25px;
+height: 2rem;
+}
+
+/* Using the selection pseudo class on all DOM elements to change the highlighted text background and text colour. */
+*::selection {
+    background-color: var(--light-magenta);
+    color: var(--light-cyan);
+}
+  
+/* Remove the default padding and margins on all heading elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 900;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+    /* Overwrite line-height for headings */
+    line-height: 1.2;
+    /* Assign the heading font variable to all headings. */
+    font-family: var(--heading-font);
+}
+
+/* Global paragraph styles. */
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    transition: var(--transition);
+    font-family: var(--body-font);
+    margin: 0;
+}
+
+/* Global anchor styles. */
+a {
+    text-decoration: none;
+}
+
+/* Global list styles. */
+ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+/* Header styles. */
+header {
+    width: 100%;
+    filter: none;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    transition: var(--transition);
+    /* background-color: var(--light-blue); */
+}
+
+#menu-header-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+/* nav-link styles */
+header .menu-item a {
+    font-size: 1.3rem;
+    color: var(--dark-pink);
+    transition: var(--transition);
+    font-family: "futura-pt", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+    
+header .menu-item a:hover {
+    color: var(--dark-cyan);
+}
+
+header .menu-item:active, header .menu-item:focus {
+    color: var(--primary-color);
+}
+
+/* Background and white space styles of the navbar bootstrap component */
+.navbar {
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    /* max-width: 900px; */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Header and footer logo anchor styles. */
+.logo {
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Set the canvas width to be minimum 75 vertical width of the viewport at all times regardless of screen size, this is to allow users to click off the menu to close it. It can only be a maximum of 600 pixels wide. */
+@media screen and (max-width: 1200px){
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    .offcanvas {
+        max-width: min(75vw, 600px)!important;
+    }
+
+    /* Remove the default canvas border when toggled out from the side. */
+    div .offcanvas.offcanvas-end {
+        border-left: none;
+    }
+}
+
+/* Thank you to Lucide Icons for the Hamburger Icon */
+[data-bs-theme=light] .navbar-toggler-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmNDUzYmUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1hbGlnbi1sZWZ0Ij48bGluZSB4MT0iMjEiIHgyPSIzIiB5MT0iNiIgeTI9IjYiLz48bGluZSB4MT0iMTUiIHgyPSIzIiB5MT0iMTIiIHkyPSIxMiIvPjxsaW5lIHgxPSIxNyIgeDI9IjMiIHkxPSIxOCIgeTI9IjE4Ii8+PC9zdmc+);
+}
+
+/* Override bootsrap navbar-toggler button styles. */
+div .navbar-toggler {
+    outline: none;
+    /* Apply custom size to the hamburger menu */
+    font-size: 1.4rem;
+    border: none;
+    box-shadow: none;
+    padding: 0.55rem;
+    background-color: var(--light-pink);
+    border-radius: 50%;
+    border: 2px solid var(--dark-pink);
+}
+
+/* Remove the default box shadow when the toggler button is in the focused state. */
+div .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Center the navbar element contents. */
+.navbar > .container-fluid {
+    justify-content: center;
+}
+
+#navbarNav > div {
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 0.5rem 3rem;
+}
+
+.navbar-expand-xl .navbar-nav {
+    margin-top: 1rem;
+}
+
+nav .navbar-brand {
+    margin-right: 0;
+}
+
+/* Navigation Bar Media Query */
+@media screen and (max-width: 1200px) {
+
+    #menu-header-nav{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-nav {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* At width of 1200px of the viewport, the container elements will shift back to the left using space between */
+    .navbar > .container-fluid {
+        justify-content: space-between;
+    }
+
+    /* Remove the navbar background at smaller device widths, creates a more clean design as I don't have a navigation logo. */
+    .navbar {
+        background-image: none;
+    }
+
+    /* White space on the top and bottom of the navigation item elements. */
+    .nav-item {
+        margin: 1rem 0;
+    }
+
+    /* Set the background color of the slide out canvas body at smaller screen widths. */
+    .offcanvas-body {
+        background-color: var(--light-blue);          
+    }
+
+    #navbarNav > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        padding: 0.5rem 1rem;
+    }
+
+    .logo {
+        display: flex;
+        margin: 0 auto 3rem auto;
+    }
+}
+
+/* Start of Hero Styles */
+
+.hero-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--light-white);
+    background-image: url(../sweetnstiff/assets/images/hero-bg-blue-tint.jpg);
+    /* background-image: url(../sweetnstiff/assets/images/landing-graphic-curved.svg); */
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Hero section styles. */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 20rem 2rem 0 2rem;
+}
+
+/* Hero section media query */
+@media screen and (max-width: 1200px) {
+    #hero {
+        padding: 10rem 2rem 0 2rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        #hero {
+            padding: 5rem 1rem 0 1rem;
+        }
+    }
+
+}
+
+/* Hero section styles. */
+#hero h1 {
+    font-size: clamp(var(--primary-h1-mobile), 9vw, var(--primary-h1));
+    font-family: var(--heading-font);
+    color: var(--dark-pink);
+    text-align: center;
+    font-weight: 800;
+}
+
+.hero-accent {
+    color: var(--dark-cyan);
+}
+
+.hero-heading-cursive {
+    font-family: var(--display-font);
+    font-size: 400;
+    margin-right: 0.5rem;
+}
+
+
+/* Hero and featured products paragraph styles. */
+#hero p,
+#featured-products p {
+    /* Dynamic font size with clamp. */
+    font-size: clamp(var(--mobile-body-size), 3vw, var(--desktop-body-size));
+    color: var(--dark-pink);
+    text-align: center;
+    margin: 3.5rem 0 6.5rem 0;
+    max-width: 600px;
+    font-weight: 400;
+}
+
+#hero p {
+    margin: 3.5rem 0 8rem 0;
+}
+
+/* Hero CTA Button styles. */
+
+#hero .hero-cta {
+    position: relative;
+    background-color: var(--dark-cyan);
+    color: var(--light-white);
+    font-family: var(--cta-font);
+    font-size: var(--font-xlg);
+    letter-spacing: 0.05rem;
+    padding: 0.5rem 2.25rem;
+    border-radius: 5rem;
+    transition: var(--transition);
+    z-index: 1;
+}
+
+/* Hero CTA before styles, allowing my koala vector to appear on top of the button. */
+#hero .hero-cta::before {
+    content: "";
+    position: absolute;
+    top: -56px;
+    left: -201px;
+    width: 600px;
+    height: 60px;
+    background-image: url(../sweetnstiff/assets/images/cta-koala.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Landing divider to insert my vector graphic without interferring with my hero background image. */
+.hero-divider {
+    margin-top: -250px;
+    min-height: 70vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../sweetnstiff/assets/images/landing-graphic-curved.svg);
+}
+
+/* 
+
+Hero CTA and Divider media query. 
+
+These styles adjust the position for my graphics and the height of the divider to ensure the design is responsive on smaller devices.
+
+*/
+@media screen and (max-width: 1366px) {
+
+    .hero-divider {
+        margin-top: -150px;
+        min-height: 60vh;
+    }
+
+    @media screen and (max-width: 1200px) {
+        
+        .hero-divider {
+            margin-top: -70px;
+            min-height: 40vh;
+        }    
+    
+        @media screen and (max-width: 768px) {
+            
+            #hero p {
+                margin: 2rem 0 6rem 0;
+            }
+
+            #hero .hero-cta {
+                font-size: var(--font-md);
+            }
+
+            #hero .hero-cta::before {
+                top: -46px;
+                left: -21px;
+                width: 216px;
+                height: 49px;
+            }
+
+            .hero-divider {
+                margin-top: -110px;
+                min-height: 30vh
+            }
+
+        }
+        @media screen and (max-width: 600px) {
+            
+            .hero-divider {
+                margin-top: -80px;
+                min-height: 20vh
+            }
+        }
+
+    }
+
+}
+
+/* Hero CTA hover styles. */
+#hero .hero-cta:hover, #featured-products a:hover {
+    background-color: var(--dark-pink);
+    color: var(--light-white);
+}
+
+/* Featured Products Section CTA Styles */
+#featured-products a {
+    background-color: var(--dark-cyan);
+    color: var(--light-white);
+    font-family: var(--cta-font);
+    font-size: var(--font-sm);
+    font-weight: 500;
+    letter-spacing: 0.075rem;
+    transition: var(--transition);
+    padding: 1rem 1.5rem;
+    line-height: 1;
+    border-radius: 5rem;
+    margin-top: 4rem;
+}
+
+/* Featured Products Media query to adjust the font size of my browse all button on smaller devices. */
+@media screen and (max-width: 768px) {
+
+    #featured-products a {
+        font-size: var(--font-xs);
+    }
+
+}
+
+/* Container Wrapper Styles */
+
+.featured-products-wrapper, .our-story-wrapper, .contact-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Featured products wrapper styles. */
+.featured-products-wrapper {
+    background-color: var(--light-blue);
+    background-position: bottom center;
+}
+
+/* Our story wrapper styles. */
+.our-story-wrapper {
+    background-color: var(--light-white);
+    background-position: bottom center;
+}
+
+/* Contact wrapper styles. */
+.contact-wrapper {
+    background-color: var(--light-white);
+    background-image: url(../sweetnstiff/assets/images/icicle-top-light.svg);
+    background-size: contain;
+    background-position: top;   
+}
+
+/* Featured Products Landing Styles */
+
+#featured-products {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1366px;
+    margin: 0 auto;  
+    padding: 8rem 2rem 10rem 2rem;  
+}
+
+/* Featured Products heading styles. */
+#featured-products h2 {
+    font-size: clamp(var(--primary-h2-mobile), 9vw, var(--primary-h2));
+    font-family: var(--heading-font);
+    color: var(--dark-pink);
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    position: relative;
+}
+
+/* Featured Products heading after styles, to create a divider line between my content. */
+#featured-products h2::after {
+    content: "";
+    position: absolute; 
+    bottom: -24px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+    background-color: transparent;
+    border-top: 2px dashed var(--dark-cyan);
+}
+
+.featured-heading {
+    font-weight: 500;
+}
+
+/* Featured Products paragraph styles. */
+#featured-products p {
+    color: var(--slate-black);
+    margin: 3.5rem 0;
+    max-width: 600px;
+    font-weight: 300;
+}
+
+/* Featured Products container styles. */
+#featured-products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1100px;
+    gap: 2rem;
+}
+
+
+/* Featured Product card anchor styles. */
+#featured-products-container > article a {
+    padding: 2rem 3rem;
+    transition: var(--transition);
+    color: var(--dark-pink);
+    padding: 0;
+    text-align: center;
+    font-weight: 400;
+    margin: 1rem 0;
+    padding-bottom: 0.75rem;
+}
+
+/* Featured Product card anchor hover styles. */
+#featured-products-container > article a,
+#featured-products-container > article a:hover {
+    background-color: transparent;
+    color: var(--dark-pink);
+}
+
+/* Featured Product card heading styles. */
+#featured-products-container > article a h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Featured Product card image styles. */
+.featured-product-image {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#featured-products-container > article a img {
+    display: block;
+    max-width: 100%;
+    height: 300px;
+    border-radius: 0.25rem;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 248, 253, 0.15);
+    transition: background-color 0.3s ease; 
+}
+
+/* Remove overlay of each of the products on hover */
+.product-link:hover .overlay {
+    background-color: transparent; 
+}
+
+/* Featured Product media query for smaller device widths. */
+@media screen and (max-width: 970px) {
+
+    /* Reduce the width of my divider line on smaller device widths. */
+    #featured-products h2::after {
+        width: 250px;
+    }
+   
+    #featured-products {
+        padding: 4rem 1rem 10rem 1rem;
+    }
+    
+    #featured-products-container > article a h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+    }
+
+    .overlay {
+        background-color: transparent;
+    }
+
+    #featured-products-container {
+        display: flex;
+        overflow-x: auto;
+    }
+
+    /* Removing the scrollbar below my products when on mobile. */
+    #featured-products-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Each product card will contain 40% of the screens width. */
+    #featured-products-container > article {        
+        flex: 0 0 40%;
+    }
+
+    /* Featured products media query for very small device widths of 640px wide. */
+    @media screen and (max-width: 640px) {
+        
+        #featured-products-container {
+            gap: 1rem;
+        }
+
+        #featured-products-container > article a img {
+            height: 250px;
+        }
+
+        #featured-products-container > article {        
+            flex: 0 0 60%;
+        }
+
+        @media screen and (max-width: 450px) {
+            
+            #featured-products-container > article a img {
+                height: 200px;
+            }
+            #featured-products-container > article {        
+                flex: 0 0 60%;
+            }
+
+        }
+    }
+
+}
+
+
+/* Our Story Section Container Styles */
+#our-story {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1366px;
+    margin: 0 auto;  
+    padding: 20rem 2rem 5rem 2rem;  
+}
+
+/* Our Story paragraph styles. */
+#our-story p {
+    font-size: clamp(var(--mobile-body-size), 3vw, 18px);
+}
+
+/* Our Story container styles, applying a light background image. */
+.story-content-container {
+    background-image: url(../sweetnstiff/assets/images/our-story-bg-light.svg);
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    /* Center the content */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Max-width of the content container. */
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    /* Keep text consistent with auto hyphens. */
+    hyphens: auto;
+}
+
+/* Our Story container paragraph styles. */
+.story-content-container > p {
+    margin-bottom: 2rem;
+    line-height: 2;
+    font-weight: 500;
+}
+
+/* Our Story container image styles. */
+.stories-container img {
+    margin-bottom: 3rem;
+}
+
+.story-content-container > p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Story container styles. */
+.stories-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+/* Story container heading styles. */
+.stories-container h3 {
+    font-size: 22px;
+}
+
+/* Story container paragraph styles. */
+.stories-container p {
+    font-size: 20px;
+    font-family: var(--heading-font);
+    font-weight: 600;
+    margin: 1.25rem 0;
+}
+
+/* Story container CTA button styles. */
+.stories-cta {
+    background-color: var(--dark-pink);
+    color: var(--light-white);
+    font-family: var(--cta-font);
+    font-size: clamp(var(--font-xs), 4vw, var(--font-sm));
+    letter-spacing: 0.05rem;
+    padding: 0.5rem 2.25rem;
+    border-radius: 5rem;
+    transition: var(--transition);
+    margin-top: 1rem;
+}
+
+/* Story container CTA button hover styles. */
+.stories-cta:hover {
+    background-color: var(--dark-cyan);
+    color: var(--light-white);
+}
+
+/* Story primary heading styles. */
+#our-story h1 {
+    position: relative;
+    font-size: clamp(var(--primary-h2-mobile), 11vw, var(--primary-h2));
+    font-family: var(--heading-font);
+    color: var(--dark-cyan);
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    z-index: 1;
+}
+
+/* Story heading divider line. */
+#our-story h1::after {
+    content: "";
+    position: absolute; 
+    bottom: -40px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+    background-color: transparent;
+    border-top: 2px dashed var(--dark-pink);
+}
+
+/* Story heading before styles, to create a koala vector inside the text, this is only active on desktop screens. */
+#our-story h1::before {    
+    content: "";
+    position: absolute;
+    top: 36px;
+    left: 4px;
+    width: 42px;
+    height: 28px;
+    transform: rotate(45deg);
+    background-image: url(../sweetnstiff/assets/images/cta-koala.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+/* Our Story media queries for smaller device widths. */
+@media screen and (max-width: 1200px) {
+
+    #our-story h1::before {
+        background-image: none;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+    /* Adjust the section padding to prevent content from overflowing or squishing into the container. */
+    #our-story {
+        padding: 15rem 2rem 5rem 2rem;  
+    }
+
+    /* Remove the background image on smaller device widths. */
+    .story-content-container {
+        background-image: none;
+    }
+
+    /* Adjust the background image of my text content container for smaller device widths. */
+    #our-story {
+        background-image: url(../sweetnstiff/assets/images/our-story-bg-light.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Mobile media query to adjust my story content spacing and font properties. */
+    @media screen and (max-width: 768px) {
+
+        #our-story {
+            padding: 13rem 1rem 5rem 1rem; 
+            background-image: none;
+        }
+
+        #our-story h1::after {
+            width: 180px;
+        }
+
+        .story-content-container {
+            padding: 6rem 0.5rem;
+        }
+
+        .stories-container p {
+            font-weight: 600;
+        }
+
+    }        
+        
+}
+
+/* Contact Styles */
+
+
+/* Form intro styles. */
+.form-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contact heading styles. */
+.contact h1 {
+    font-size: clamp(var(--primary-h2-mobile), 9vw, var(--primary-h2));
+    font-family: var(--heading-font);
+    color: var(--dark-pink);
+    text-align: center;
+    font-weight: 800;
+}
+
+/* Contact section styles. */
+.contact {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1366px;
+    margin: 0 auto;  
+    padding: 20rem 2rem;  
+    overflow: hidden;
+}
+
+/* Contact form styles to adjust the width. */
+#contact-form {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+/* Contact form wrapper styles. */
+.form-wrapper {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Form wrapper text styles. */
+.form-wrapper h1,
+.form-wrapper p {
+    text-align: center;
+}
+
+.form-intro > p:nth-of-type(1) {
+    margin: 2rem auto 3rem auto;
+    max-width: 600px;
+}
+
+/* Overwriting bootstrap form styles of the form-control class. */
+.form-control {
+    display: block;
+    width: 100%;
+    /* padding: 0.5rem 0.75rem; */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: var(--dark-pink);
+    /* Form field background colours */
+    background-color: var(--light-cyan);
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    /* Remove border and outline styles from the form inputs. */
+    border: none;
+    outline: none;
+    /* Text letter spacing. */
+    letter-spacing: 0.05rem;
+    /* Adjust the boldness of the form field text content. */
+    font-weight: 300;
+    box-shadow: var(--dark-pink) 0 2px;
+    border: 2px solid var(--light-slate-black);
+    transition: var(--transition);
+}
+
+.form-control:hover {  
+    box-shadow: 0 0 0 0.15rem var(--dark-pink);
+}
+
+/* Form placeholder text colour */
+.form-control::-webkit-input-placeholder, 
+.form-control:focus::-webkit-input-placeholder {
+    color: var(--dark-magenta);
+    font-weight: 400;
+}
+
+/* When a form field is focused, apply the following styles. */
+.form-control:focus {
+    background-color: var(--light-white);
+    color: var(--dark-pink);
+    /* Remove default bootstrap outline. */
+    outline: 0;
+    transition: var(--transition);
+    box-shadow: 0 0 0 0.15rem var(--dark-pink);
+}
+
+/* Add top and bottom padding to the input rows. */
+.row {
+    padding: 1rem 0;
+    --bs-gutter-x: 0;
+}
+
+.row > label {
+    padding: 0 0 0.35rem 0;
+    color: var(--dark-magenta);
+}
+
+/* Center the contact button in the form wrapper container. */
+.contact button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: var(--dark-pink);
+    color: var(--light-white);
+    font-family: var(--cta-font);
+    font-size: var(--font-sm);
+    letter-spacing: 0.05rem;
+    padding: 0.5rem 2.25rem;
+    border-radius: 5rem;
+    transition: var(--transition);
+    z-index: 1;
+    margin-top: 2rem;
+}
+
+/* Contact button after styles, to create a koala vector underneath the submit button. */
+.contact button::after {
+    content: "";
+    position: absolute;
+    bottom: -57px;
+    left: -214px;
+    width: 600px;
+    height: 60px;
+    transform: rotate(180deg);
+    background-image: url(../sweetnstiff/assets/images/cta-koala.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* When the contact button is hovered, apply the following styles. */
+.contact button:hover {
+    background-color: var(--cyan);
+    color: var(--light-white);
+}
+
+/* Add max device width of 768px, apply the following styles. */
+@media screen and (max-width: 768px) {
+
+    /* Add some padding around the form wrapper on mobile screens */
+    .form-wrapper {
+        padding: 0;
+    }
+
+}
+
+/* Contact media query for smaller device widths. */
+@media screen and (max-width: 700px){
+    .contact button {
+        font-size: var(--font-xs);
+    }
+    .contact button::after {
+        bottom: -50px;
+        left: -223px;
+        height: 53px;
+    }
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: var(--footer-bg);
+    padding: 2rem 0;
+}
+
+/* Footer copyright text styles. */
+.copyright {
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--dark-pink);
+    font-family: var(--heading-font);
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+}
+
+/* Footer navigation layout styles. */
+footer nav {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* Allow my navigation links to align in a column. */
+#menu-footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Footer navigation link styles. */
+#menu-footer-nav a {
+    font-size: 1.3rem;
+    color: var(--dark-pink);
+    transition: var(--transition);
+    font-family: "futura-pt", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Footer navigation link hover styles. */
+#menu-footer-nav a:hover {
+    color: var(--dark-cyan);
+}
+
+/* Footer socials container styles. */
+.social-icons {
+    width: 40px;
+}
+
+/* Footer header styles (Stay Connected) */
+.footer-socials h5 {
+    position: relative;
+    font-size: 1.5rem;
+    color: var(--dark-pink);
+    font-family: var(--heading-font);
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Footer social line divider styles. */
+.social-line-divider {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 250px;
+    height: 1px;
+    background-color: var(--dark-cyan);
+}
+
+/* Footer social icon container styles. */
+.social-icon-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+/* Social icon vector styles. */
+.social-icon-container a .social-fill {    
+    transition: var(--transition);
+}
+
+/* Social icon hover styles. */
+.social-icon-container a:hover .social-fill {
+    fill: var(--dark-pink);
+}
+
+/* Add screen widths of 900px wide, the footer content will stack vertically to allow for a mobile focused layout. */
+@media screen and (max-width: 900px) {
+
+    footer nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .social-line-divider {
+        height: 0;
+    }
+
+}
+
+/* Testimonial Page Styles */ 
+
+/* Testimonial container styles. */
+
+.testimonial-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--light-blue);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Testimonial section styles. */
+#testimonials {
+    max-width: 1466px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 10rem 1rem;
+  }
+  
+  /* Testimonial h2 styles. */
+  #testimonials h2 {
+    margin-bottom: 4rem;
+    font-size: clamp(var(--primary-h2-mobile), 9vw, 50px);
+    font-family: var(--heading-font);
+    color: var(--dark-cyan);
+  }
+  
+  /* Testimonial grid container. */
+  .testimonial-card-container {
+    display: grid;
+    /* Create 6 equal columns */
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    /* Card spacing. */
+    gap: 1.5rem;
+    align-content: center;
+  }
+  
+  /* Testimonial card styles. */
+  .testimonial-card-container article {
+    box-shadow: rgb(255, 210, 251, 1) 2px 3px;
+    background-color: var(--lighter-pink);
+    padding: 2rem 3rem;
+    /* Display the children elements of the grid container as flex to allow more control over positioning. */
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+  }
+
+  .testimonial-card-container article:nth-of-type(2),
+  .testimonial-card-container article:nth-of-type(3) {
+    box-shadow: rgba(149, 243, 255, 0.9) 2px 3px;
+  }
+
+  
+  /* First Testimonial Card */
+  .testimonial-card-container > article:nth-of-type(1) {
+    /* Row 1 to 1, Column 1 to 5. */
+    grid-area: 1 / 1 / 1 / 5;
+    /* background-color: var(--light-blue); */
+    border-left: 2px dashed var(--dark-pink);
+    border-top: 2px dashed var(--dark-pink);
+  }
+  
+  /* Second Testimonial Card */
+  .testimonial-card-container > article:nth-of-type(2) {
+     /* Row 1 to 3, Column 5 to 7. */
+    grid-area: 1 / 5 / 3 / 7;
+    /* Thank you to Vecteezy for the Quotation Mark Vector Graphic, reference here: https://www.vecteezy.com/vector-art/105173-free-quotation-mark-vector */
+    background-image: url(../sweetnstiff/assets/images/quote-mark.svg);
+    background-color: var(--lighter-pink);
+    /* Positioning the quotation background at the bottom right of the card, and negate repeating images. */
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 50%;
+  }
+  
+  /* Third Testimonial Card */
+  .testimonial-card-container > article:nth-of-type(3) {
+    /* Row 2 to 2, Column 1 to 3. */
+    grid-area: 2 / 1 / 2 / 3;
+    background-color: var(--light-white);
+    color: var(--white);
+  }
+  
+  /* Fourth Testimonial Card */
+  .testimonial-card-container > article:nth-of-type(4) {
+    /* Row 2 to 2, Column 3 to 5. */
+    grid-area: 2 / 3 / 2 / 5;
+  }
+  
+  /* Fifth Testimonial Card */
+  .testimonial-card-container > article:nth-of-type(5) {
+    /* Row 3 to 3, Column 1 to 4. */
+    grid-area: 3 / 1 / 3 / 4;    
+  }
+  
+  /* Sixth Testimonial Card */
+  .testimonial-card-container > article:nth-of-type(6) {
+    /* Row 3 to 3, Column 4 to 7. */
+    grid-area: 3 / 4 / 3 / 7;
+    background-color: var(--lighter-pink);
+  }
+  
+  /* At device widths of 1200px, apply the following styles to the testimonial section grid layout. */
+  @media screen and (max-width: 1200px) {
+  
+    .testimonial-card-container article {
+      padding: 2rem 2rem;
+    }
+  
+    /* Testimonial Card 1 */
+    .testimonial-card-container > article:nth-of-type(1) {
+      /* Row 1 to 1, Column 1 / 4 */
+      grid-area: 1 / 1 / 1 / 4;
+    }
+  
+     /* Testimonial Card 2 */
+    .testimonial-card-container > article:nth-of-type(2) {
+      /* Row 1 to 1, Column 4 / 7 */
+      grid-area: 1 / 4 / 1 / 7;
+    }
+  
+     /* Testimonial Card 3 */
+    .testimonial-card-container > article:nth-of-type(3) {
+      /* Row 2 to 2, Column 1 / 4 */
+      grid-area: 2 / 1 / 2 / 7;
+    }
+  
+     /* Testimonial Card 4 */
+    .testimonial-card-container > article:nth-of-type(4) {
+      /* Row 3 to 3, Column 1 / 4 */
+      grid-area: 3 / 1 / 3 / 4;
+    }
+  
+     /* Testimonial Card 5 */
+    .testimonial-card-container > article:nth-of-type(5) {
+      /* Row 3 to 3, Column 4 / 7 */
+      grid-area: 3 / 4 / 3 / 7;
+    }
+  
+    /* Testimonial Card 6 */
+    .testimonial-card-container > article:nth-of-type(6) {
+      /* Row 4 to 4, Column 1 / 4 */
+      grid-area: 4 / 1 / 4 / 7;    
+    }
+    
+  }
+
+  
+  /* Testimonial header styles, the testimonial image and heading will sit side by side due to the flex container. */
+  .testimonial-header {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 0 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* On mobile devices of max width 768px wide, apply the following styles. */
+  @media screen and (max-width: 768px) {
+  
+    /* Stack the testimonial heading and image in a column layout to prevent overflow on smaller screens. */
+    .testimonial-header {
+      justify-content: center;
+      margin-bottom: 0;
+    }
+    
+    /* Changing the order of my testimonial header on smaller screens. */
+    .testimonial-header h3 {
+        order: 2;
+        margin: 0;
+    }
+
+    /* Edit the order of the image in the testimonial header container. */
+    .testimonial-header img {
+      order: 1;
+      margin: 1.5rem 0;
+    }
+  
+    /* Center the blockquote text on smaller screens. */
+    .testimonial-card-container article blockquote {
+      text-align: center;
+    }
+  
+  }
+  
+  /* Testimonial h3 styles. */
+  .testimonial-header h3 {
+    color: var(--dark-pink);
+    font-weight: 500;
+  }
+  
+  /* Testimonial image styles. */
+  .testimonial-header img {
+    /* Fixed width on the portrait images. */
+    width: 60px;
+    height: 60px;
+    /* Round the images intro circles. */
+    -webkit-border-radius: 60px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 60px;
+    -moz-background-clip: padding;
+    border-radius: 60px;
+    background-clip: padding-box;
+    /* Center the images into the image container. */
+    background-size: cover;
+    background-position: center center;
+    border: 3px dashed var(--dark-cyan);
+  }
+  
+  /* Auto hypens on the blockquote elements. */
+  .testimonial-card-container article blockquote {
+    hyphens: auto;
+    /* color: var(--light-magenta); */
+    color: var(--dark-magenta);
+  }
+  
+  /* Display block on the cite element to allow more control. */
+  .testimonial-card-container article blockquote cite {
+    display: block;
+    margin-top: 1rem;
+    color: var(--dark-magenta);
+    font-weight: 600;
+  }
+  
+  /* Adjust the quote font to dynamically adjust based on the device viewport width. */
+  .testimonial-card-container article blockquote {
+    font-size: clamp(1rem, 5vw, var(--font-xs));
+    line-height: 1.5;
+  }
+
+  /* Testimonial Categories & Tags List Styles */
+
+  .testimonial-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .testimonial-list li {
+    background-color: #ffeffd;
+    color: var(--dark-pink);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--dark-pink);
+  }
+
+   /* On mobile device widths of 768px max width, apply the following stlyes. */
+
+   @media screen and (max-width: 768px) {
+
+    #testimonials {
+        padding: 10rem 0 6rem 1rem;
+    }
+
+    /* Display all the testimonials in a scrollable container moving horizontal to save space on smaller device sizes. */
+    .testimonial-card-container {
+        display: flex;
+        overflow-x: auto;        
+    }
+
+    /* Scrollbar track styles, remove the scrollbar */
+    .testimonial-card-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* The horizontal scrolling container cards will contain 92% of the screen width, to prompt the user that there are other testimonials to scroll to. */
+    .testimonial-card-container > article {        
+        flex: 0 0 92%;
+        border-left: 2px dashed var(--dark-pink);
+        border-top: 2px dashed var(--dark-pink);
+    }
+
+    .testimonial-card-container > article:nth-of-type(6) {
+        margin-right: 1rem;
+    }
+
+    /* Testimonial media query for very small device widths. */
+    @media screen and (max-width: 500px) {
+
+        .testimonial-card-container {
+            gap: 1rem;
+        }
+
+        .testimonial-header {
+            margin-top: 1rem;
+        }
+
+        /* Stack the testimonial heading and image in a column layout to prevent overflow on smaller screens. */
+        .testimonial-header {
+            flex-direction: column;
+        }
+        
+        /* Adjusting the testimonial content order for mobile. */
+        .testimonial-header h3 {
+            order: 1;
+        }
+
+        /* Edit the order of the image in the testimonial header container. */
+        .testimonial-header img {
+            order: 2;
+        }
+
+        .testimonial-card-container > article {
+            flex: 0 0 90%;
+        }
+    }
+
+    /* Remove the quote background image from the second card on mobile. (Visibility). */
+    .testimonial-card-container > article:nth-of-type(2) {
+        background-image: none;
+    }
+
+    /* Center the testimonial tag list items. */
+    .testimonial-list {
+        margin-top: 1.5rem;
+        justify-content: center;
+    }
+    
+  }
+
+  /* Index Default Page Styles */
+
+  .index-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: var(--light-white);
+  }
+
+  /* Index section styles. */
+  #index {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1366px;
+    padding: 20rem 2rem;
+    background-color: var(--light-white);
+  }
+
+  /* Shop Section Styles */
+
+  .shop-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--lighter-pink);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  /* Shop section container styles. */
+  #shop {
+    max-width: 1366px;
+    margin: 0 auto;  
+    padding: 20rem 2rem 5rem 2rem;  
+  }
+
+  /* Shop section intro styles. */
+  .shop-intro {
+    margin-bottom: 3rem;
+  }
+
+  /* Shop section heading styles. */
+  .shop-intro h1 {
+    font-size: clamp(var(--primary-h2-mobile), 9vw, var(--primary-h2));
+    font-family: var(--heading-font);    
+    font-weight: 800;
+  }
+
+  .shop-intro h1,
+  .shop-intro p,
+  .woocommerce-result-count {
+    color: var(--dark-magenta);
+  }
+
+  /* WooCommerce single product breadcrumb styles. */
+  .woocommerce:where(body:not(.woocommerce-uses-block-theme)) .woocommerce-breadcrumb {
+    color: var(--dark-pink);
+  }
+
+  .woocommerce:where(body:not(.woocommerce-uses-block-theme)) .woocommerce-breadcrumb a {
+    color: var(--dark-magenta);
+    transition: var(--transition);
+  }
+
+  .woocommerce:where(body:not(.woocommerce-uses-block-theme)) .woocommerce-breadcrumb a:hover {
+    color: var(--dark-cyan);
+  }
+
+  /* WooCommerce product loop title styles. */
+  .woocommerce-loop-product__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-magenta);
+  }
+
+  /* WooCommerce product loop price styles. */
+  .woocommerce-Price-amount {
+    color: var(--product-price);
+    font-size: 18px;
+  }
+
+  /* WooCommerce product loop button styles, hiding the button as I preferred this design. */
+  .woocommerce ul.products li.product .button {
+    display: none;
+  }
+
+  @media screen and (max-width: 1200px) {
+    #our-story, .contact, #shop {
+        padding: 15rem 2rem 5rem 2rem;  
+    }
+  }
+
+  /* WooCommerce Display Message styles. */
+  .woocommerce-message, .woocommerce-error {
+    border-top-color: var(--dark-pink);
+  }
+
+  /* WooCommerce message before styles. */
+  .woocommerce-message::before {
+    content: "\e015";
+    color: var(--dark-cyan);
+  }
+
+  /* WooCommerce error before styles. */
+  .woocommerce-error::before {
+    content: "\e016";
+    color: var(--dark-cyan);
+  }
+
+  /* WooCommerce message and error message button styles. */
+  .woocommerce-message a.button, .woocommerce-error a.button {
+    background-color: var(--dark-pink);
+    color: var(--light-white);
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    transition: var(--transition);
+  }
+
+  /* WooCommerce message and error message button hover styles. */
+  .woocommerce-message a.button:hover, .woocommerce-error a.button:hover{
+    background-color: var(--dark-cyan);
+    color: var(--light-white);
+  }
+
+  .woocommerce a.remove {    
+    color: var(--dark-cyan)!important;
+    margin-left: 0.5rem;
+  }
+
+  /* Cart Styles */
+
+  #index h1 {
+    font-size: clamp(var(--primary-h2-mobile), 9vw, var(--primary-h2));
+    font-family: var(--heading-font);
+    color: var(--dark-pink);
+    font-weight: 800;
+    position: relative;
+  }
+
+  /* Product description styles. */
+  .wc-block-components-product-metadata .wc-block-components-product-metadata__description > p {
+    font-size: 1.4em;
+  }
+  
+  /* Cart title styles. */
+  #index .wc-block-cart__empty-cart__title {
+    color: var(--dark-magenta);
+  }
+
+  @media screen and (max-width: 768px) {
+
+    #index .wc-block-cart__empty-cart__title {
+      margin-top: 2rem;
+    }
+
+  }
+
+  /* Product container styles, allow each product to sit side by each.  */
+  .wc-block-grid__products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+
+  }
+
+  /* Removing the default separator dots block. */
+  .wp-block-separator.is-style-dots {
+    display: none;
+  }
+
+
+  /* Align the products grid content to the left. */
+  #index .wc-block-grid__products {
+      justify-content: left;
+  }
+
+  /* At screen widths of 680px wide, apply the following styles. */
+  @media screen and (max-width: 680px) {
+
+      #index {
+          padding: 15rem 1rem 5rem 1rem;
+      }
+
+      /* Center the products grid on mobile. */
+      #index .wc-block-grid__products {
+          margin-top: 2rem;
+          justify-content: center;
+      }
+
+  }
+
+  /* Product grid styles for the pages containing the #index wrapper */
+  #index .wc-block-grid__product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+  /* Product grid card heading styles. */
+  #index .wc-block-grid__product-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-pink);
+    text-align: center;
+    margin: 1rem 0 0.25rem 0;
+  }
+
+  /* Product grid card anchor styles. */
+  #index .wp-block-button__link {
+      background-color: var(--dark-pink);
+      color: var(--light-white);
+      font-family: var(--cta-font);
+      font-size: 1rem;
+      letter-spacing: 0.05rem;
+      padding: 0.5rem 2.25rem;
+      border-radius: 5rem;
+      transition: var(--transition);
+      margin-top: 1rem;
+  }
+
+  /* Product grid card anchor hover styles. */
+  #index .wp-block-button__link:hover {
+      background-color: var(--dark-cyan);
+      color: var(--light-white);
+  }
+
+  .wc-block-cart-items__header-image,
+  .wc-block-cart-items__header-total,
+  #index .wc-block-cart__totals-title,
+  .is-large.wc-block-cart .wc-block-cart__totals-title {
+    color: var(--dark-magenta);
+    font-size: 0.9rem;
+  }
+
+  /* Cart item product name styles. */
+  table.wc-block-cart-items .wc-block-cart-items__row .wc-block-components-product-name {
+    color: var(--dark-pink);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: var(--transition);
+  }
+
+  /* Cart item product name styles on hover. */
+  table.wc-block-cart-items .wc-block-cart-items__row .wc-block-components-product-name:hover {
+    color: var(--dark-cyan);
+  }
+
+  /* Cart item removal link styles. */
+  #index table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity .wc-block-cart-item__remove-link {
+    color: var(--dark-magenta);
+    transition: var(--transition);
+  }
+
+  /* Cart item removal link styles on hover. */
+  #index table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity .wc-block-cart-item__remove-link:hover {
+    color: var(--dark-pink);
+  }
+
+  /* WooCommerce coupon styles. */
+  #index .wc-block-components-totals-coupon__button > span {
+    margin-top: 0;
+    padding: 0.5rem 3rem;
+  }
+
+  /* WooCommerce Checkout Styles */
+
+
+  /* Checkout title styles. */
+  .wc-block-components-checkout-step__title {
+    color: var(--dark-magenta);
+  }
+
+  /* Checkout form input styles. */
+  #index .wc-block-components-combobox .wc-block-components-combobox-control input.components-combobox-control__input,
+  #index .wc-block-components-form .wc-block-components-text-input input {
+    background: var(--lightest-pink);
+    color: var(--dark-pink);
+    border-radius: 0.25rem;
+    border: 1px solid var(--dark-pink);
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 0.25rem;
+    outline: none;
+    border: none;
+    font-weight: 300;
+    box-shadow: var(--dark-pink) 0 1px;
+    transition: var(--transition);
+    margin-bottom: 0.25rem;
+  }
+
+  /* Checkout form label styles */
+  #index .wc-block-components-form .wc-block-components-text-input label, 
+  #index .wc-block-components-text-input label,
+  #index .wc-block-components-combobox .wc-block-components-combobox-control label,
+  #index .wc-block-components-form .wc-block-components-text-input label {
+    color: var(--dark-magenta);
+    font-weight: 400;
+  }
+
+  /* Checkout Error Styles */
+
+  #index .wc-block-components-validation-error > p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .wp-block-woocommerce-checkout-payment-block .wc-block-components-notice-banner.is-error {
+    background-color: var(--light-pink);
+    border: 1px solid var(--dark-pink);
+    color: var(--dark-magenta);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  /* Overwrite error container SVG styles. */
+  #index .wc-block-components-notice-banner.is-error > svg {
+    width: 34px;
+    height: 34px;
+    fill: var(--light-white);
+    background-color: var(--dark-magenta);
+  }
+
+  /* Checkout return to cart button styles. */
+  #index .wc-block-components-checkout-return-to-cart-button {
+    color: var(--dark-magenta);
+    font-family: var(--cta-font);
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+
+  /* Checkout return to cart button hover styles. */
+  #index .wc-block-components-checkout-return-to-cart-button:hover {
+    color: var(--dark-cyan);
+  }
+
+  /* Remove default styles of the checkout button. */
+  .wc-block-components-button:not(.is-link) {
+    outline: none;
+    appearance: none;
+    border: none;
+    background: transparent;
+    transition: var(--transition);
+  }
+
+  /* Removing the box shadow and outline when the checkout button is in focus. */
+  #index .wc-block-components-button:not(.is-link):focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  /* Checkout button text styles. */
+  .wc-block-components-button:not(.is-link) .wc-block-components-button__text {
+    background-color: var(--dark-pink);
+    color: var(--light-white);
+    font-family: var(--cta-font);
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    padding: 1rem 2.25rem;
+    border-radius: 5rem;
+    transition: var(--transition);
+    margin-top: 1rem;
+  }
+
+  /* Checkout button text hover styles. */
+  .wc-block-components-button:not(.is-link) .wc-block-components-button__text:hover {
+    background-color: var(--dark-cyan);
+    color: var(--light-white);
+  }
+
+  /* Checkout button styles on mobile devices, adjusting margins and spacing to fit the layout. */
+  @media screen and (max-width: 600px) {
+
+    .wc-block-components-button:not(.is-link) .wc-block-components-button__text {
+      margin-top: 0;
+    }
+    
+    #index .wc-block-checkout__actions_row .wc-block-components-checkout-place-order-button {
+      padding: 0 1em 2rem 0;
+    }
+
+  }
+
+  /* Cart badge styles. */
+  #index .wc-block-components-product-badge {
+    margin-top: 0.5rem;
+    padding: 0.35rem 0.66em 0.2rem 0.66em;
+    border: 1px solid var(--dark-magenta);
+    color: var(--dark-magenta);
+  }
+
+
+  /* Checkout dropdown selection form input styles. */
+  #index .wc-block-components-combobox .wc-block-components-combobox-control .components-form-token-field__suggestions-list,
+  .wc-block-components-form .wc-block-components-combobox .wc-block-components-combobox-control .components-form-token-field__suggestions-list {
+    background: var(--light-pink);
+    border: 1px solid var(--dark-pink);
+    box-shadow: 0 1px 0 1px var(--dark-pink);
+    color: var(--dark-magenta);
+  }
+
+  #index .wc-block-components-combobox .wc-block-components-combobox-control .components-form-token-field__suggestions-list .components-form-token-field__suggestion, 
+  #index .wc-block-components-form .wc-block-components-combobox .wc-block-components-combobox-control .components-form-token-field__suggestions-list .components-form-token-field__suggestion {
+    background: var(--light-pink);
+    color: var(--dark-magenta);
+    transition: var(--transition);
+  }
+
+  #index .wc-block-components-combobox .wc-block-components-combobox-control .components-form-token-field__suggestions-list .components-form-token-field__suggestion.is-selected, 
+  #index .wc-block-components-form .wc-block-components-combobox .wc-block-components-combobox-control .components-form-token-field__suggestions-list .components-form-token-field__suggestion.is-selected{
+    background: var(--dark-pink);
+    color: var(--light-white);
+  }
+
+  /* Checkout > Order Summary Styles */
+
+  .wc-block-checkout__sidebar .wc-block-components-product-name,
+  .wc-block-components-formatted-money-amount,
+  .wc-block-components-totals-item__label,
+  .wc-block-components-totals-footer-item .wc-block-components-totals-item__label,
+  .wc-block-components-formatted-money-amount,
+  .wc-block-components-totals-footer-item .wc-block-components-totals-item__value {
+    color: var(--dark-magenta);
+  }
+
+  /* Order summary button text styles. */
+  #index .wc-block-components-order-summary__button-text {
+    color: var(--dark-magenta);
+    font-family: var(--cta-font);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+  }
+
+  #index .wc-block-components-panel__button:hover .wc-block-components-order-summary__button-text {
+    color: var(--dark-pink);
+  }
+
+  /* Order summary item quantity styles. */
+  #index .wc-block-components-order-summary .wc-block-components-order-summary-item__quantity {
+      align-items: center;
+      background: var(--lightest-pink);
+      border: 2px solid var(--dark-pink);
+      box-shadow: 0 0 0 2px #ffdbfd;
+      color: var(--dark-magenta);
+      font-weight: 600;
+  }
+
+  /* Order summary item description styles. */
+  #index .wc-block-components-order-summary .wc-block-components-order-summary-item__description p {
+    font-size: 1em;
+  }
+
+  /* Order summary coupon and anchor styles. */
+  #index .wc-block-components-totals-coupon {
+    margin: 1rem 0;
+  }
+
+  #index .wc-block-components-totals-coupon > a {
+    color: #fff2fb;
+    font-family: var(--cta-font);
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: var(--dark-pink);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    transition: var(--transition);
+  }
+
+  /* Order summary coupon and anchor styles on hover. */
+  #index .wc-block-components-totals-coupon > a:hover {
+    background-color: var(--dark-cyan);
+  }
+
+  /* Single Product View Styles */
+
+  #main {
+      max-width: 1366px;
+      margin: 0 auto;
+      padding: 20rem 1rem 0 1rem;
+  }
+
+  #primary {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--light-pink);
+  }
+
+  /* Single product image container width */
+  .woocommerce div.product div.images, .woocommerce-page div.product div.images {
+      width: 40%;
+  }
+
+  /* Single product summary container width */
+  .woocommerce div.product div.summary, .woocommerce-page div.product div.summary {
+      width: 55%;
+  }
+
+  /* Single product title styles */
+  .woocommerce div.product .product_title {
+      color: var(--dark-magenta);
+  }
+
+  /* Single product short description styles */
+  .woocommerce-product-details__short-description {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+  }
+
+  /* Single product price styles */
+  .woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product p.price, .woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product span.price {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+  }
+
+  /* Gallery zoom icon background color. */
+  .woocommerce div.product div.images .woocommerce-product-gallery__trigger {
+      background: var(--light-pink);
+  }
+
+  /* Single product details paragraph styles */
+  .woocommerce-product-details__short-description > p {
+      margin-bottom: 1rem;
+  }
+
+  .woocommerce-product-details__short-description > p:last-of-type {
+      margin-bottom: 0;
+  }
+
+  /* Single product details list styles */
+  .woocommerce-product-details__short-description > ul {
+      margin-top: 0.25rem;
+  }
+
+  /* Single product stock styles */
+  .woocommerce div.product p.stock {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+  }
+
+  /* Single product clear selection anchor styles. */
+  .woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product .stock,
+  .posted_in a,
+  .woocommerce div.product form.cart .reset_variations {
+      color: var(--dark-pink);
+      transition: var(--transition);
+  }
+
+  .woocommerce div.product form.cart .reset_variations {
+    font-weight: 600;
+    font-size: 1em;
+  }
+
+  .posted_in a:hover,
+  .woocommerce div.product form.cart .reset_variations:hover {
+      color: var(--dark-cyan);
+  }
+
+  #main .woocommerce div.product form.cart {
+      display: flex;
+      align-items: center;
+      margin: 1.25rem 0;
+  }
+
+
+  /* Appyling the following styles to the add to cart button when there is no selection made (disabled button state). */
+  .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt.disabled,
+  .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt {
+      background-color: var(--dark-pink);
+      border-radius: 0.25rem;
+      color: var(--light-white);
+      font-size: 1.25rem;
+      margin-left: 1rem;
+      transition: var(--transition);
+      border-radius: 2rem;
+  }
+
+  /* Add to cart hover button styles. */
+  .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt.disabled:hover,
+  .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:hover {
+      background-color: var(--dark-cyan);
+  }
+
+  /* Product quantity styles. */
+  .woocommerce .quantity .qty {
+      width: 4.6em;
+      padding: 0.4rem 0.1rem;
+  }
+
+  /* Product meta data styles. */
+  .product_meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+  }
+
+  /* Additional product details paragraph styles. */
+  .woocommerce table.shop_attributes td p {
+    font-size: 1em;
+  }
+
+  /* Image Gallery Styles, adjusting the image container sizing and thumbnail image sizes. */
+
+  .woocommerce div.product div.images {
+      margin-bottom: 4rem;
+  }
+
+  .woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(n+2) {
+      width: 18%;
+  }
+
+  @media screen and (max-width: 768px) {
+
+      .woocommerce div.product div.images {
+          margin-bottom: 3rem;
+      }
+
+      .product_meta {
+          margin-bottom: 4rem;
+      }
+  }
+
+  /* WooCommerce Description Tab Styles. */
+
+  .woocommerce div.product .product_title {
+      color: var(--dark-magenta);
+  }
+
+  .woocommerce div.product .woocommerce-tabs ul.tabs li, 
+  .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+      background-color: var(--light-pink);
+  }
+
+  /* Tabs anchor and active anchor state styles. */
+  .woocommerce div.product .woocommerce-tabs ul.tabs li a, 
+  .woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+      color: var(--dark-magenta);
+      transition: var(--transition);
+  }
+
+  /* Tabs before and after styles. */
+  .woocommerce div.product .woocommerce-tabs ul.tabs::before,
+  .woocommerce div.product .woocommerce-tabs ul.tabs li::before,
+  .woocommerce div.product .woocommerce-tabs ul.tabs li::after {
+      border-bottom: 2px dashed var(--dark-pink);
+  }
+
+  .woocommerce div.product .woocommerce-tabs ul.tabs li {
+      border: 1px solid var(--dark-pink);
+      transition: var(--transition);
+  }
+
+  /* Tabs hover styles. */
+  .woocommerce div.product .woocommerce-tabs ul.tabs li:hover {
+      background-color: var(--pastel-hover);
+  }
+
+  .woocommerce div.product .woocommerce-tabs ul.tabs li:hover a {
+      color: var(--dark-magenta);
+  }
+
+  /* Tabs active styles. */
+  .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+      border-bottom-color: var(--light-pink);
+      background-color: var(--pastel-pink);
+  }
+
+
+  /* Tabs and bestseller heading styles. */
+  .woocommerce div.product .woocommerce-tabs .panel > h2, 
+  .related > h2, #bestsellers > h2 {
+      color: var(--dark-magenta);
+      margin-bottom: 1rem;
+  }
+
+  .related > h2 {
+      margin: 3rem 0 2rem 0;
+  }
+
+  @media screen and (max-width: 768px) {
+
+      .woocommerce div.product .woocommerce-tabs ul.tabs {
+          padding: 0;
+      }
+
+  }
+
+  /* Order Details Styles */ 
+
+  .woocommerce-order-details__title,
+  .woocommerce-column__title,
+  .woocommerce-thankyou-order-received {
+    color: var(--dark-magenta);
+  }
+
+  /* Order details title styles. */
+  .woocommerce-order-details__title {
+    margin-top: 1rem;
+  }
+
+  .woocommerce-order-details__title,
+  .woocommerce-column__title {
+    margin-bottom: 1rem;
+  }
+
+  /* Order recieved text container styles. */
+  .woocommerce-thankyou-order-received {
+    margin-bottom: 2rem;
+  }
+
+  .woocommerce-order-details .woocommerce td.product-name .wc-item-meta p {
+    font-size: 1em;
+  }
+
+  /* Bestsellers section styles. */
+
+  /* Bestsellers wrapper container styles. */
+  .bestsellers-wrapper {
+    position: relative;
+    background-color: var(--lighter-pink);
+    padding: 5rem 0;
+}
+
+  #bestsellers {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+
+      #main {
+          padding: 8rem 0.75rem 0 0.75rem;
+      }
+
+      .woocommerce div.product div.images, 
+      .woocommerce-page div.product div.images,
+      .woocommerce div.product div.summary, 
+      .woocommerce-page div.product div.summary {
+          width: 100%;
+      }
+  }
+
+  /* Bestseller product container styles, allow the products to appear in a 3 column layout. */
+  #bestsellers-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+  }
+
+  /* Product card content to stack vertically with flex direction column. */
+  #bestsellers-container li > a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+  }
+
+  /* Bestseller product card anchor styles. */
+  #bestsellers-container li > a:nth-of-type(2) {
+    max-width: 65%;
+    margin: 0.65rem auto 0 auto;
+    background-color: var(--dark-pink);
+    color: var(--light-white);
+    transition: var(--transition);
+  }
+
+  #bestsellers-container li > a:nth-of-type(2):hover {
+      background-color: var(--dark-cyan);
+      color: var(--light-white);
+  }
+
+  #bestsellers-container li > a:nth-of-type(3) {
+      color: var(--dark-pink);
+  }
+
+  /* Bestseller product card title styles. */
+  #bestsellers-container .woocommerce-loop-product__title {
+      font-size: 1rem;
+      margin-top: 1rem;
+  }
+
+  /* Adjusting the product containers grid columns based on the device widths. */
+  @media screen and (max-width: 600px) {
+      #bestsellers-container {
+          grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media screen and (max-width: 400px) {
+          #bestsellers-container {
+              grid-template-columns: auto;
+          }
+      }
+  }
